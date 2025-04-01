@@ -1,8 +1,8 @@
 class Usuario < ApplicationRecord
-  has_secure_password
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
-  validates :nome, presence: true, length: { maximum: 100 }
-  validates :sobrenome, presence: true, length: { maximum: 100 }
-  validates :email, presence: true, uniqueness: true, length: { maximum: 100 }
-  validates :senha, presence: true, length: { minimum: 6 }
+  validates :nome, :sobrenome, :email, presence: true, length: { maximum: 100 }
+  validates :password, presence: true, length: { minimum: 6 }
 end
