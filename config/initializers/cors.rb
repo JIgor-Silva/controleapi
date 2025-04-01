@@ -16,10 +16,10 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*' # Depois, altere para o domínio do frontend
-    resource '*',
+    origins "*" # Depois, altere para o domínio do frontend
+    resource "*",
              headers: :any,
              methods: %i[get post put patch delete options head],
-             expose: [:Authorization]
+             expose: [ :Authorization ]
   end
 end

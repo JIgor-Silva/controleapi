@@ -6,8 +6,7 @@ class AuthController < ApplicationController
       token = JwtService.encode({ usuario_id: usuario.id })
       render json: { token: token, usuario: usuario }, status: :ok
     else
-      render json: { error: 'Email ou senha inválidos' }, status: :unauthorized
+      render json: { error: "Email ou senha inválidos" }, status: :unauthorized
     end
   end
 end
-
