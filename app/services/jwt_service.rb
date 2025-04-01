@@ -1,7 +1,7 @@
 require "jwt"
 
 class JwtService
-  SECRET_KEY = Rails.application.secrets.secret_key_base
+  SECRET_KEY = Rails.application.secret_key_base
 
   def self.encode(payload, exp = 24.hours.from_now) # token com payload
     payload[:exp] = exp.to_i
